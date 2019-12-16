@@ -15,6 +15,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,6 +24,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -34,6 +37,7 @@ import javafx.util.Duration;
 import models.Medicine;
 import models.Patient;
 import prescriptionPdf.PrescriptionPDF;
+import sample.Main;
 
 import java.io.FileOutputStream;
 import java.net.URL;
@@ -52,7 +56,7 @@ public class HomePage implements Initializable {
     public TableView<Medicine> medicineTableView;
     public ObservableList<Medicine> medicineObservableList;
     @FXML
-    Stage addPatientStage, addMedicineStage, addPrescriptionStage;
+    static Stage addPatientStage, addMedicineStage, addPrescriptionStage;
     @FXML
     private JFXButton quickAccessMenuButton, patientMenuButton, medicineMenuButton, quickAddPatientButton, quickAddMedicineButton, quickAddPrescriptionButton, addPatientButton, addMedicineButton, addPrescriptionButton, patientRefresh, medicineRefresh;
     @FXML
@@ -110,8 +114,8 @@ public class HomePage implements Initializable {
         }
     }
 
-    private void addPatient() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../addPatient/AddPatient.fxml"));
+     public static void addPatient() throws Exception {
+        Parent root = FXMLLoader.load(HomePage.class.getResource("../addPatient/AddPatient.fxml"));
         addPatientStage = new Stage();
         addPatientStage.setTitle("UFAS MedicalOffice");
         addPatientStage.initStyle(StageStyle.UTILITY);
@@ -120,8 +124,8 @@ public class HomePage implements Initializable {
         addPatientStage.show();
     }
 
-    private void addMedicine() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../addMedicine/AddMedicine.fxml"));
+    public static void addMedicine() throws Exception {
+        Parent root = FXMLLoader.load(HomePage.class.getResource("../addMedicine/AddMedicine.fxml"));
         addMedicineStage = new Stage();
         addMedicineStage.setTitle("UFAS MedicalOffice");
         addMedicineStage.initStyle(StageStyle.UTILITY);
@@ -130,8 +134,8 @@ public class HomePage implements Initializable {
         addMedicineStage.show();
     }
 
-    private void addPrescription() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../addPrescription/AddPrescription.fxml"));
+    public static void addPrescription() throws Exception {
+        Parent root = FXMLLoader.load(HomePage.class.getResource("../addPrescription/AddPrescription.fxml"));
         addPrescriptionStage = new Stage();
         addPrescriptionStage.setTitle("UFAS MedicalOffice");
         addPrescriptionStage.initStyle(StageStyle.UTILITY);

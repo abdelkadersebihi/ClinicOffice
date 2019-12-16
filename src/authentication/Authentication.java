@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import db.DBController;
+import homepage.HomePage;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -69,6 +70,28 @@ public class Authentication implements Initializable {
                 Main.mainStage.setScene(new Scene(root, res.width - 80, res.height - 90));
                 Main.mainStage.setAlwaysOnTop(false);
                 Main.mainStage.setResizable(true);
+                Main.mainStage.getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
+                    public void handle(KeyEvent ke) {
+                        if (ke.getCode() == KeyCode.F1) {
+                            try {
+                                HomePage.addPatient();
+                            } catch (Exception e) {
+                            }
+                        }
+                        if (ke.getCode() == KeyCode.F2) {
+                            try {
+                                HomePage.addMedicine();
+                            } catch (Exception e) {
+                            }
+                        }
+                        if (ke.getCode() == KeyCode.F3) {
+                            try {
+                                HomePage.addPrescription();
+                            } catch (Exception e) {
+                            }
+                        }
+                    }
+                });
                 Main.mainStage.show();
             }catch(Exception e) {
                 System.out.println(e);

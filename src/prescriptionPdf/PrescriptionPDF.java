@@ -30,8 +30,8 @@ public class PrescriptionPDF {
         String name = "";
 
         PDDocument document = new PDDocument();
-        PDImageXObject logo = PDImageXObject.createFromFile(System.getProperty("user.home") + "/Desktop"+"/logo/Logo.png", document);
-        //PDImageXObject header = PDImageXObject.createFromFile(System.getProperty("user.home") + "/Desktop"+"/logo/Logo.png", document);
+        PDImageXObject logo = PDImageXObject.createFromFile(System.getProperty("user.home") + "/Documents/Projects/ClinicOffice/src/icons/Logo.png", document);
+        PDImageXObject header = PDImageXObject.createFromFile(System.getProperty("user.home") + "/Documents/Projects/ClinicOffice/src/icons/header.png", document);
         PDPage page = new PDPage(PDRectangle.A5);
         document.addPage(page);
         PDPageContentStream contentStream = new PDPageContentStream(document, page);
@@ -116,12 +116,12 @@ public class PrescriptionPDF {
         f.getParentFile().mkdirs();
         f.createNewFile();
         document.save(f);
-        if (Desktop.isDesktopSupported()) {
+        /*if (Desktop.isDesktopSupported()) {
             try {
                 Desktop.getDesktop().open(f);
             } catch (IOException ex) {
             }
-        }
+        }*/
         document.close();
     }
 }
