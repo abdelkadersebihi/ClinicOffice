@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="com.itextpdf.tool:xmlworker:5.5.5" type="repository">
+    <properties maven-id="com.itextpdf.tool:xmlworker:5.5.5" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/xmlworker-5.5.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/itextpdf-5.5.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
