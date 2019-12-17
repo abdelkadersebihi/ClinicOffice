@@ -31,12 +31,36 @@ public class AddMedicine implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         errorLabel.setVisible(false);
         formComboBox.getItems().addAll(
+                "AERO",
+                "AERO NAS",
+                "AMP BUV",
+                "BAUME",
+                "CAPS MOLLES",
+                "CAPS ORALE",
+                "COLLU",
+                "COLLY",
+                "COLLY EN SOL",
                 "COMP",
-                "GELL",
-                "CREWE",
+                "COMP ENRO",
+                "CREME",
+                "DRG",
                 "GEL",
-                "COLLYRE",
-                "GOUTTS"
+                "GELL",
+                "GRLES",
+                "LOTION",
+                "LYOPH",
+                "MICROGRANULES",
+                "OVULE",
+                "PATCH",
+                "PDE",
+                "PDRE",
+                "SHAMPOING",
+                "SIROP",
+                "SUSP INJ",
+                "SUSP BUV",
+                "SUSPPO",
+                "SPRAY NASAL",
+                "SOL"
         );
     }
 

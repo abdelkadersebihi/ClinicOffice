@@ -1,9 +1,6 @@
 package addPrescription;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXCheckBox;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.*;
 import db.DBController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,16 +27,19 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class AddPrescription implements Initializable, EventHandler<KeyEvent> {
+
     @FXML
-    public JFXTextArea medicinesInPrescriptionTextArea;
+    private JFXTextField additionalInfos;
     @FXML
-    JFXComboBox patientComboBox,medicineComboBox,qsp,qte;
+    private JFXTextArea medicinesInPrescriptionTextArea;
     @FXML
-    JFXCheckBox qspCheckbox;
+    private JFXComboBox patientComboBox,medicineComboBox,qsp,qte;
     @FXML
-    JFXButton addMedicineInPrescriptionButton, resetButton, addPrescriptionButton;
+    private JFXCheckBox qspCheckbox;
     @FXML
-    Label error,errorMed;
+    private JFXButton addMedicineInPrescriptionButton, resetButton, addPrescriptionButton;
+    @FXML
+    private Label error,errorMed;
     private ObservableList<String> patientData,medicineData;
     private boolean moveCaretToPos = false;
     private int caretPos;
@@ -48,6 +48,7 @@ public class AddPrescription implements Initializable, EventHandler<KeyEvent> {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         qsp.setEditable(false);
         qte.setEditable(false);
+
         qspCheckbox.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -78,11 +79,11 @@ public class AddPrescription implements Initializable, EventHandler<KeyEvent> {
         try {
             ResultSet resultSet = DBController.getPatients();
             while (resultSet.next()) {
-                patientComboBox.getItems().add(resultSet.getString("nom_pat") + " " + resultSet.getString("prenom_pat")+ " " + resultSet.getString("datn_pat"));
+                patientComboBox.getItems().add(resultSet.getString("Nom") + " " + resultSet.getString("Prenom")+ " " + resultSet.getString("DateNaissance"));
             }
             resultSet=DBController.getMedicines();
             while (resultSet.next()){
-                medicineComboBox.getItems().add(resultSet.getString("nom_med")+" "+resultSet.getString("dose_med")+" "+resultSet.getString("forme_med"));
+                medicineComboBox.getItems().add(resultSet.getString("Medicament")+" "+resultSet.getString("Dose")+" "+resultSet.getString("Forme"));
             }
         } catch (Exception e) {
         }
@@ -119,14 +120,17 @@ public class AddPrescription implements Initializable, EventHandler<KeyEvent> {
         if (event.getSource().equals(resetButton)) {
             medicinesInPrescriptionTextArea.setText(null);
             patientComboBox.setValue(null);
+            medicineComboBox.setValue(null);
+            qsp.setValue(null);
+            qte.setValue(null);
+            additionalInfos.setText("");
         } else if (event.getSource().equals(addPrescriptionButton)) {
-            if (patientComboBox.getValue() == null || medicinesInPrescriptionTextArea.getText().isEmpty()) {
+            if (patientComboBox.getValue() == null || patientComboBox.getValue().toString().isBlank() || medicinesInPrescriptionTextArea.getText().isEmpty() ) {
                 error.setVisible(true);
                 return;
             }
             error.setVisible(false);
             PrescriptionPDF.generatePdf(patientComboBox.getValue().toString(), medicinesInPrescriptionTextArea.getText());
-
             ((Node) (event.getSource())).getScene().getWindow().hide();
 
 
@@ -137,16 +141,17 @@ public class AddPrescription implements Initializable, EventHandler<KeyEvent> {
                     return;
                 }
                 errorMed.setVisible(false);
-                medicinesInPrescriptionTextArea.setText(medicinesInPrescriptionTextArea.getText()+"\n"+medicineComboBox.getValue().toString()+" "+qsp.getValue().toString());
+                medicinesInPrescriptionTextArea.setText(medicinesInPrescriptionTextArea.getText()+"\n"+medicineComboBox.getValue().toString()+"qsp"+qsp.getValue().toString()+" \n"+additionalInfos.getText()+" \n");
             }else {
                 if (medicineComboBox.getValue()==null ||medicineComboBox.getValue().toString().trim().isEmpty()  || qte.getValue() == null){
                     errorMed.setVisible(true);
                     return;
                 }
                 errorMed.setVisible(false);
-                medicinesInPrescriptionTextArea.setText(medicinesInPrescriptionTextArea.getText()+"\n"+medicineComboBox.getValue().toString()+" "+qte.getValue().toString()+" "+"boits");
+                medicinesInPrescriptionTextArea.setText(medicinesInPrescriptionTextArea.getText()+"\n"+medicineComboBox.getValue().toString()+" "+qte.getValue().toString()+" "+"boit(s)"+" \n"+additionalInfos.getText()+" \n");
             }
             medicineComboBox.setValue(null);
+            additionalInfos.setText("");
             qte.setValue(null);
             qsp.setValue(null);
         }

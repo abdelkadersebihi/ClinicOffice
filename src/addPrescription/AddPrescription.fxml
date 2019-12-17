@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -27,15 +28,15 @@
     <center>
         <AnchorPane prefHeight="288.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>
-                <JFXComboBox fx:id="patientComboBox" editable="true" layoutX="35.0" layoutY="44.0" prefHeight="40.0" prefWidth="390.0" />
+                <JFXComboBox fx:id="patientComboBox" editable="true" layoutX="35.0" layoutY="28.0" prefHeight="40.0" prefWidth="390.0" />
                 <JFXButton fx:id="addPrescriptionButton" alignment="CENTER" buttonType="FLAT" layoutX="218.0" layoutY="554.0" onAction="#handleClick" prefHeight="40.0" prefWidth="155.0" style="-fx-background-color: #079992; -fx-background-radius: 0;" text="Créer" textFill="WHITE" />
                 <JFXButton fx:id="resetButton" alignment="CENTER" buttonType="FLAT" layoutX="93.0" layoutY="554.0" onAction="#handleClick" prefHeight="40.0" prefWidth="110.0" style="-fx-background-radius: 0; -fx-border-color: #079992; -fx-border-width: 2;" text="Remettre" textFill="#079992" />
-                <JFXTextArea fx:id="medicinesInPrescriptionTextArea" layoutX="37.0" layoutY="355.0" prefHeight="149.0" prefWidth="388.0" promptText="Médicaments ajoutés" />
+                <JFXTextArea fx:id="medicinesInPrescriptionTextArea" layoutX="37.0" layoutY="363.0" prefHeight="141.0" prefWidth="388.0" promptText="Médicaments ajoutés" />
                 <Label fx:id="error" layoutX="36.0" layoutY="519.0" text="Veuillez saisir tous les champs correctement !" textFill="#b52c2c" />
-                <AnchorPane layoutX="20.0" layoutY="100.0" prefHeight="240.0" prefWidth="421.0" style="-fx-border-color: #079992; -fx-border-width: 2;">
+                <AnchorPane layoutX="20.0" layoutY="79.0" prefHeight="277.0" prefWidth="421.0" style="-fx-border-color: #079992; -fx-border-width: 2;">
                     <children>
-                        <JFXComboBox fx:id="medicineComboBox" editable="true" layoutX="25.0" layoutY="37.0" prefHeight="40.0" prefWidth="385.0" />
-                        <JFXButton fx:id="addMedicineInPrescriptionButton"  alignment="BASELINE_LEFT" buttonType="FLAT" layoutX="17.0" layoutY="183.0" onAction="#handleClick" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #079992; -fx-background-radius: 0;" text=" Ajouter le médicament" textFill="WHITE">
+                        <JFXComboBox fx:id="medicineComboBox" editable="true" layoutX="23.0" layoutY="30.0" prefHeight="40.0" prefWidth="385.0" />
+                        <JFXButton fx:id="addMedicineInPrescriptionButton" alignment="BASELINE_LEFT" buttonType="FLAT" layoutX="14.0" layoutY="223.0" onAction="#handleClick" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #079992; -fx-background-radius: 0;" text=" Ajouter le médicament" textFill="WHITE">
                             <graphic>
                                 <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -47,17 +48,18 @@
                                 <Insets left="12.0" />
                             </padding>
                         </JFXButton>
-                        <JFXComboBox fx:id="qte" editable="true" layoutX="22.0" layoutY="97.0" prefHeight="40.0" prefWidth="150.0" promptText="Quantité" />
-                        <JFXComboBox fx:id="qsp" editable="true" layoutX="193.0" layoutY="97.0" prefHeight="40.0" prefWidth="150.0" promptText="Qsp" />
-                        <JFXCheckBox fx:id="qspCheckbox" layoutX="356.0" layoutY="114.0" text="Qsp" />
-                        <Label layoutX="15.0" layoutY="17.0" text="Médicament" textFill="#079992">
+                        <JFXComboBox fx:id="qte" editable="true" layoutX="21.0" layoutY="89.0" prefHeight="40.0" prefWidth="150.0" promptText="Quantité" />
+                        <JFXComboBox fx:id="qsp" editable="true" layoutX="192.0" layoutY="89.0" prefHeight="40.0" prefWidth="150.0" promptText="Qsp" />
+                        <JFXCheckBox fx:id="qspCheckbox" layoutX="355.0" layoutY="106.0" text="Qsp" />
+                        <Label layoutX="15.0" layoutY="10.0" text="Médicament" textFill="#079992">
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font></Label>
-                        <Label fx:id="errorMed" layoutX="22.0" layoutY="153.0" text="Veuillez saisir tous les champs correctement !" textFill="#b52c2c" />
+                        <Label fx:id="errorMed" layoutX="18.0" layoutY="197.0" text="Veuillez saisir tous les champs correctement !" textFill="#b52c2c" />
+                  <JFXTextField fx:id="additionalInfos" editable="true" layoutX="18.0" layoutY="145.0" prefHeight="40.0" prefWidth="385.0" promptText="Information additionnelle" />
                     </children>
                 </AnchorPane>
-                <Label layoutX="33.0" layoutY="27.0" text="Patient" textFill="#079992">
+                <Label layoutX="33.0" layoutY="11.0" text="Patient" textFill="#079992">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Label>
