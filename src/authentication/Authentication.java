@@ -94,7 +94,6 @@ public class Authentication implements Initializable {
                 });
                 Main.mainStage.show();
             }catch(Exception e) {
-                System.out.println(e);
             }
         }
     }
