@@ -7,10 +7,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="lib" level="project" />
-    <orderEntry type="library" name="jfoenix-9.0.8" level="project" />
-    <orderEntry type="library" name="sqlite-jdbc-3.27.2.1" level="project" />
-    <orderEntry type="library" name="org.apache.pdfbox:pdfbox:2.0.13" level="project" />
-    <orderEntry type="library" name="com.itextpdf.tool:xmlworker:5.5.5" level="project" />
+    <orderEntry type="library" exported="" name="lib" level="project" />
+    <orderEntry type="library" exported="" name="jfoenix-9.0.8" level="project" />
+    <orderEntry type="library" exported="" name="org.apache.pdfbox:pdfbox:2.0.13" level="project" />
+    <orderEntry type="library" exported="" name="com.itextpdf.tool:xmlworker:5.5.5" level="project" />
+    <orderEntry type="library" exported="" name="sqlite-jdbc-3.27.2.1" level="project" />
   </component>
 </module>

@@ -2,19 +2,13 @@ package models;
 
 public class Patient {
 
-    private int patientId;
     private String patientName, patientFamilyName, patientBirthday, patientDepartment;
 
-    public Patient(int patientId, String patientName, String patientFamilyName, String patientBirthday, String patientDepartment) {
-        this.patientId = patientId;
+    public Patient(String patientName, String patientFamilyName, String patientBirthday, String patientDepartment) {
         this.patientName = patientName;
         this.patientFamilyName = patientFamilyName;
         this.patientBirthday = patientBirthday;
         this.patientDepartment = patientDepartment;
-    }
-
-    public int getPatientIdId() {
-        return patientId;
     }
 
     public String getPatientName() {
@@ -47,9 +41,5 @@ public class Patient {
 
     public void setPatientDepartment(String department) {
         this.patientDepartment = department;
-    }
-
-    public void setPatientId(int id) {
-        this.patientId = id;
     }
 }
