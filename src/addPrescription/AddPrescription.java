@@ -125,7 +125,7 @@ public class AddPrescription implements Initializable, EventHandler<KeyEvent> {
             qte.setValue(null);
             additionalInfos.setText("");
         } else if (event.getSource().equals(addPrescriptionButton)) {
-            if (patientComboBox.getValue() == null || patientComboBox.getValue().toString().isBlank() || medicinesInPrescriptionTextArea.getText().isEmpty() ) {
+            if (patientComboBox.getValue() == null || patientComboBox.getValue().toString().trim().isEmpty()|| medicinesInPrescriptionTextArea.getText().isEmpty() ) {
                 error.setVisible(true);
                 return;
             }

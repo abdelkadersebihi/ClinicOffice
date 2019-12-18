@@ -48,7 +48,7 @@ public class AddPatient implements Initializable {
             patientBirthdayDatePicker.setValue(null);
             patientDepartmentComboBox.setValue(null);
         }else if(event.getSource().equals(addPatientButton)){
-            if(patientNameTextField.getText().isEmpty()  || patientNameTextField.getText().isBlank() || patientFamilyNameTextField.getText().isEmpty() || patientFamilyNameTextField.getText().isBlank() || patientDepartmentComboBox.getValue()==null || patientBirthdayDatePicker.getValue()== null){
+            if(patientNameTextField.getText().isEmpty()  || patientNameTextField.getText().trim().isEmpty() || patientFamilyNameTextField.getText().isEmpty() || patientFamilyNameTextField.getText().trim().isEmpty()|| patientDepartmentComboBox.getValue()==null || patientBirthdayDatePicker.getValue()== null){
                 errorLabel.setVisible(true);
                 return;
             }
