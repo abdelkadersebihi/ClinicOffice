@@ -70,8 +70,9 @@ public class AddMedicine implements Initializable {
             medicineDoseTextField.setText(null);
             formComboBox.setValue(null);
         } else if (event.getSource().equals(addMedicineButton)) {
-            if (medicineNameTextField.getText().isEmpty() || medicineDoseTextField.getText().isEmpty() || formComboBox.getValue() == null) {
+            if (medicineNameTextField.getText().trim().isEmpty()|| medicineNameTextField.getText().isEmpty() || medicineDoseTextField.getText().isEmpty() || medicineDoseTextField.getText().trim().isEmpty() || formComboBox.getValue() == null) {
                 errorLabel.setVisible(true);
+                return;
             }
             errorLabel.setVisible(false);
             DBController.insertMed(medicineNameTextField.getText(), medicineDoseTextField.getText(), formComboBox.getValue().toString());

@@ -8,7 +8,7 @@
     <update check="background"/>
     <resources>
         <j2se version="10.0.2+" href="http://java.sun.com/products/autodl/j2se"/>
-        <jar href="clinique_ufas.jar" size="551188" download="eager"/>
+        <jar href="clinique_ufas.jar" size="551226" download="eager"/>
     </resources>
     <jfx:javafx-desc width="600" height="400" main-class="sample.Main" name="Main"/>
 </jnlp>
